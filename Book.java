@@ -4,9 +4,9 @@ public class Book {
     private String title;
     private String authors;
     private int nCopies;
-    private int hasEBook;
+    private boolean hasEBook;
 
-    public Book(String title, String authors, int nCopies, int hasEBook) {
+    public Book(String title, String authors, int nCopies, boolean hasEBook) {
         this.title = title;
         this.authors = authors;
         this.nCopies = nCopies;
@@ -25,7 +25,7 @@ public class Book {
         return nCopies;
     }
 
-    public int getHasEBook() {
+    public boolean getHasEBook() {
         return hasEBook;
     }
 
@@ -41,7 +41,7 @@ public class Book {
         this.nCopies = nCopies;
     }
 
-    public void setHasEBook(int hasEBook) {
+    public void setHasEBook(boolean hasEBook) {
         this.hasEBook = hasEBook;
     }
 

@@ -16,7 +16,7 @@ public class RemoveBook implements Operation {
             System.out.println("The following books are in the cart:");
             for (int i = 0; i < books.size(); i++) {
                 int bookNumber = i + 1;
-                System.out.println(bookNumber + ". " + books.get(i).toString());
+                System.out.println(bookNumber + ". " + books.get(i).getTitle());
             }
             System.out.println("Enter the number of the book to remove: ");
             int bookNumber = Integer.parseInt(System.console().readLine());
