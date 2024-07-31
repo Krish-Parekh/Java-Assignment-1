@@ -1,6 +1,10 @@
 package Library;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import Library.interfaces.Operation;
+import Library.OperationFactory;
 
 public class Library {
 
@@ -18,10 +22,17 @@ public class Library {
             System.out.print("Please select: ");
 
             int option = scanner.nextInt();
-
+            
             if (option == 6) {
                 break;
             }
+            
+            OperationFactory operationFactory = new OperationFactory(new ArrayList<>());    
+            Operation operation = operationFactory.createOperation(option);
+            operation.execute();
+
+            
+
             
             System.out.println();
         }
