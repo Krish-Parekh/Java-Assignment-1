@@ -5,6 +5,7 @@ public class Book {
     private String authors;
     private int nCopies;
     private boolean hasEBook;
+    private double price;
 
     public Book(String title, String authors, int nCopies, boolean hasEBook) {
         this.title = title;
@@ -44,6 +45,15 @@ public class Book {
     public void setHasEBook(boolean hasEBook) {
         this.hasEBook = hasEBook;
     }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return this.price;
+    }
+
 
     @Override
     public String toString() {

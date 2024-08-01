@@ -21,6 +21,10 @@ public class Library {
         ArrayList<Book> allBooks = loadBooks();
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("=".repeat(30));
+        System.out.println("Welcome to the Reading Room!");
+        System.out.println("=".repeat(30));
+        
         while (true) {
             System.out.println("Choose an option:");
             System.out.println("1. Add a book to shopping cart");

@@ -86,6 +86,7 @@ public class OperationFactory {
         String buyAsEBook = System.console().readLine();
         if (buyAsEBook.equals("yes")) {
             if (selectedBook.getHasEBook()) {
+                selectedBook.setPrice(CheckoutType.EBOOK.getPrice());
                 System.out.println("EBook bought successfully");
             } else {
                 System.out.println("EBook not available");
@@ -93,6 +94,7 @@ public class OperationFactory {
             }
         } else {
             if (selectedBook.getNCopies() > 0) {
+                selectedBook.setPrice(CheckoutType.PHYSICAL.getPrice());
                 selectedBook.setNCopies(selectedBook.getNCopies() - 1);
                 System.out.println("Book bought successfully");
             } else {
