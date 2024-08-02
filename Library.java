@@ -43,6 +43,11 @@ public class Library {
 
             OperationFactory operationFactory = new OperationFactory(allBooks);
             Operation operation = operationFactory.createOperation(option);
+            
+            if (operation == null) {
+                continue;
+            }
+
             operation.execute();
 
             System.out.println();
