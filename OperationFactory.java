@@ -9,6 +9,7 @@ import Library.operations.AddBook;
 import Library.operations.ViewCart;
 import Library.operations.RemoveBook;
 import Library.operations.ListAllBook;
+import Library.operations.Checkout;
 
 public class OperationFactory {
     private List<Book> allBooks;
@@ -31,18 +32,14 @@ public class OperationFactory {
             }
             case 3: {
                 List<Book> books = Cart.getInstance().getBooks();
-                if (books.isEmpty()) {
-                    System.out.println("Your shopping cart is empty");
-                    return null;
-                }
-                Book book  = selectBook(Cart.getInstance().getBooks());
+                Book book = removeSelectBook(books);
                 if (book == null) {
                     return null;
                 }
                 return new RemoveBook(book);
             }
             case 4: {
-                return null;
+                return new Checkout();
             }
             case 5: {
                 return new ListAllBook(new ArrayList<>(allBooks));
@@ -53,16 +50,53 @@ public class OperationFactory {
         }
     }
 
+    private Book removeSelectBook(List<Book> books) {
+        if (books.isEmpty()) {
+            System.out.println("Your shopping cart is empty");
+            return null;
+        }
+        displaySearchResult(books);
+        int selectedBookNumber = selectBookNumber(books.size());
+        if (selectedBookNumber == -1) {
+            return null;
+        }
+        return books.get(selectedBookNumber - 1);
+    }
+
     private Book selectBook(List<Book> books) {
         System.out.print("Enter a keyword: ");
         String keyword = System.console().readLine().toLowerCase();
         List<Book> searchedBooks = searchBooks(books, keyword);
+        if (searchedBooks.isEmpty()) {
+            System.out.println("No books found\n");
+            return null;
+        }
         displaySearchResult(searchedBooks);
         int selectedBookNumber = selectBookNumber(searchedBooks.size());
         if (selectedBookNumber == -1) {
             return null;
         }
-        return searchedBooks.get(selectedBookNumber - 1);
+        Book selectedBook = searchedBooks.get(selectedBookNumber - 1);
+        
+        System.out.print("Do you want to buy this as an ebook: ");
+        String buyAsEbook = System.console().readLine();
+        if (buyAsEbook.equalsIgnoreCase("yes")) {
+            if (selectedBook.getHasEBook()) {
+                selectedBook.setPrice(CheckoutType.EBOOK.getPrice());
+            } else {
+                System.out.println("This book does not have an ebook available");
+                return null;
+            }
+        } else {
+            if (selectedBook.getNCopies() > 0) {
+                selectedBook.setPrice(CheckoutType.PHYSICAL.getPrice());
+                selectedBook.setNCopies(selectedBook.getNCopies() - 1);
+            } else {
+                System.out.println("This book is out of stock");
+                return null;
+            }
+        }
+        return selectedBook;
     }
 
     private List<Book> searchBooks(List<Book> books, String keyword) {
@@ -77,10 +111,6 @@ public class OperationFactory {
     }
 
     private void displaySearchResult(List<Book> searchedBooks) {
-        if (searchedBooks.isEmpty()) {
-            System.out.println("No books found");
-            return;
-        }
         int bookNumber = 0;
         System.out.println("Your shopping cart contains the following book(s): ");
         for (int i = 0; i < searchedBooks.size(); i++) {

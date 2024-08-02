@@ -21,9 +21,9 @@ public class Library {
         ArrayList<Book> allBooks = loadBooks();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("=".repeat(30));
+        System.out.println("=".repeat(50));
         System.out.println("Welcome to the Reading Room!");
-        System.out.println("=".repeat(30));
+        System.out.println("=".repeat(50));
         
         while (true) {
             System.out.println("Choose an option:");
@@ -36,6 +36,7 @@ public class Library {
             System.out.print("Please select: ");
 
             int option = scanner.nextInt();
+            System.out.println();
 
             if (option == 6) {
                 break;

@@ -14,6 +14,7 @@ public class RemoveBook implements Operation {
     @Override
     public void execute() {
         Cart.getInstance().removeBook(book);
+        System.out.println("Book removed from shopping cart: " + book.getTitle());
     }
 
 }
