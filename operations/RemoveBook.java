@@ -13,15 +13,28 @@ public class RemoveBook implements Operation {
         if (books.isEmpty()) {
             System.out.println("No books in the cart");
         } else {
-            System.out.println("The following books are in the cart:");
+            System.out.println("Your shopping cart contains the following book(s):");
+            int bookNumber = 0;
             for (int i = 0; i < books.size(); i++) {
-                int bookNumber = i + 1;
+                ++bookNumber;
                 System.out.println(bookNumber + ". " + books.get(i).getTitle());
             }
-            System.out.println("Enter the number of the book to remove: ");
-            int bookNumber = Integer.parseInt(System.console().readLine());
-            if (bookNumber > 0 && bookNumber <= books.size()) {
-                Cart.getInstance().removeBook(books.get(bookNumber - 1));
+            if (bookNumber == 0) {
+                System.out.println("No books in the cart");
+                return;
+            } else {
+                System.out.println((bookNumber + 1) + ". Cancel");
+            }
+
+            System.out.print("Please select: ");
+            int selectedBookNumber = Integer.parseInt(System.console().readLine());
+            
+            if(selectedBookNumber == bookNumber + 1) {
+                return;
+            }
+
+            if (selectedBookNumber > 0 && selectedBookNumber <= books.size()) {
+                Cart.getInstance().removeBook(books.get(selectedBookNumber - 1));
                 System.out.println("The book has been removed from the cart");
             } else {
                 System.out.println("Invalid book number");
