@@ -14,5 +14,6 @@ public class AddBook implements Operation {
     @Override
     public void execute() {
         Cart.getInstance().addBook(book);
+        System.out.println("\"" + book.getTitle() + "\"" + " has been added to your shopping cart");
     }
 }

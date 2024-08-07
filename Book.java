@@ -57,6 +57,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return this.title + " | " + this.authors + " | " + this.nCopies + " | " + this.hasEBook;
+        String hasEBook = this.hasEBook ? "Yes" : "No";
+        return this.title + " | " + this.authors + " | " + this.nCopies + " | " + hasEBook;
     }
 }

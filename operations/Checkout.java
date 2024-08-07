@@ -16,6 +16,7 @@ public class Checkout implements Operation {
         }
         System.out.println("You have purchased items to the total value of: " + total);
         System.out.println("Thank you for shopping with The Reading Room!");
+        Cart.getInstance().removeAllBooks();
     }
     
 }

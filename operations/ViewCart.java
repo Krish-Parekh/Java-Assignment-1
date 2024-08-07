@@ -11,7 +11,7 @@ public class ViewCart implements Operation {
     public void execute() {
         List<Book> books = Cart.getInstance().getBooks();
         if (books.isEmpty()) {
-            System.out.println("Cart is empty");
+            System.out.println("Your shopping cart is empty");
         } else {
             System.out.println("Your shopping cart contains the following book(s):");
             for (int i = 0; i < books.size(); i++) {

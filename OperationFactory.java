@@ -55,7 +55,7 @@ public class OperationFactory {
             System.out.println("Your shopping cart is empty");
             return null;
         }
-        displaySearchResult(books);
+        displaySpecificDetail(books);
         int selectedBookNumber = selectBookNumber(books.size());
         if (selectedBookNumber == -1) {
             return null;
@@ -77,7 +77,7 @@ public class OperationFactory {
             return null;
         }
         Book selectedBook = searchedBooks.get(selectedBookNumber - 1);
-        
+
         System.out.print("Do you want to buy this as an ebook: ");
         String buyAsEbook = System.console().readLine();
         if (buyAsEbook.equalsIgnoreCase("yes")) {
@@ -92,7 +92,7 @@ public class OperationFactory {
                 selectedBook.setPrice(CheckoutType.PHYSICAL.getPrice());
                 selectedBook.setNCopies(selectedBook.getNCopies() - 1);
             } else {
-                System.out.println("This book is out of stock");
+                System.out.println("This book is out of stock \n");
                 return null;
             }
         }
@@ -111,6 +111,23 @@ public class OperationFactory {
     }
 
     private void displaySearchResult(List<Book> searchedBooks) {
+        int bookNumber = 0;
+        System.out.println("Your shopping cart contains the following book(s): ");
+        for (int i = 0; i < searchedBooks.size(); i++) {
+            ++bookNumber;
+            Book book = searchedBooks.get(i);
+            String hasEBook = book.getHasEBook() ? "Yes" : "No";
+            System.out.println(bookNumber + ". " + book.getTitle() + " | " + book.getAuthors() + " | "
+                    + book.getNCopies() + " copies" + " | " + hasEBook);
+        }
+        if (bookNumber == 0) {
+            System.out.println("No books found");
+        } else {
+            System.out.println((bookNumber + 1) + ". Cancel");
+        }
+    }
+
+    private void displaySpecificDetail(List<Book> searchedBooks) {
         int bookNumber = 0;
         System.out.println("Your shopping cart contains the following book(s): ");
         for (int i = 0; i < searchedBooks.size(); i++) {
