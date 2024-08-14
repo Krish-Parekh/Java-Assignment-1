@@ -52,7 +52,7 @@ public class OperationFactory {
 
     private Book removeSelectBook(List<Book> books) {
         if (books.isEmpty()) {
-            System.out.println("Your shopping cart is empty");
+            System.out.println("Your shopping cart is empty \n");
             return null;
         }
         displaySpecificDetail(books);
@@ -84,7 +84,7 @@ public class OperationFactory {
             if (selectedBook.getHasEBook()) {
                 selectedBook.setPrice(CheckoutType.EBOOK.getPrice());
             } else {
-                System.out.println("This book does not have an ebook available");
+                System.out.println("This book does not have an ebook available \n");
                 return null;
             }
         } else {
@@ -121,7 +121,7 @@ public class OperationFactory {
                     + book.getNCopies() + " copies" + " | " + hasEBook);
         }
         if (bookNumber == 0) {
-            System.out.println("No books found");
+            System.out.println("No books found \n");
         } else {
             System.out.println((bookNumber + 1) + ". Cancel");
         }
@@ -136,7 +136,7 @@ public class OperationFactory {
             System.out.println(bookNumber + ". " + book.getTitle());
         }
         if (bookNumber == 0) {
-            System.out.println("No books found");
+            System.out.println("No books found \n");
         } else {
             System.out.println((bookNumber + 1) + ". Cancel");
         }
@@ -152,7 +152,7 @@ public class OperationFactory {
         if (selectedBookNumber > 0 && selectedBookNumber <= bookNumber) {
             return selectedBookNumber;
         }
-        System.out.println("Invalid option!");
+        System.out.println("Invalid option! \n");
         return -1;
     }
 }

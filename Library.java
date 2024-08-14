@@ -5,8 +5,29 @@ import java.util.Scanner;
 
 import Library.interfaces.Operation;
 
+/**
+ * Name: Krish Parekh
+ * Student ID: s4043281
+ * 
+ * Github: https://github.com/Krish-Parekh/Java-Assignment-1
+ * 
+ * Thought Process:
+ * This application uses design patterns to make the code more abstract and maintainable.
+ * 
+ * The Factory Design Pattern is used to create objects for different operations that can be executed on 
+ * the list of books. All operation classes implement the Operation interface, which defines the execute method.
+ * 
+ * The Singleton Design Pattern is used to ensure that only a single instance of the Cart class is created 
+ * in the JVM. This ensures that there is only one cart instance maintained for a single session.
+ */
+
 public class Library {
 
+    /**
+     * Loads a list of books.
+     *
+     * @return An ArrayList of Book objects representing the loaded books.
+     */
     static ArrayList<Book> loadBooks() {
         ArrayList<Book> books = new ArrayList<>();
         books.add(new Book("Absolute Java", "Savitch", 5, true));
