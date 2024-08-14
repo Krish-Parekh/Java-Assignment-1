@@ -39,6 +39,7 @@ public class Library {
             System.out.println();
 
             if (option == 6) {
+                System.out.println("Goodbye!");
                 break;
             }
 
