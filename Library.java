@@ -22,6 +22,8 @@ import Library.Operation.OperationFactory;
  * 
  * The Singleton Design Pattern is used to ensure that only a single instance of the Cart class is created 
  * in the JVM. This ensures that there is only one cart instance maintained for a single session.
+ * 
+ * VIDEO DEMO: https://rmiteduau-my.sharepoint.com/:v:/g/personal/s4043281_student_rmit_edu_au/Ee5fz7ON3A5OsBK2Q2xs8kEBix5j4Rtz2BFQjlyztcbYAQ?e=vVyMb5&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
  */
 
 public class Library {
