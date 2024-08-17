@@ -31,7 +31,7 @@ public class RemoveBookOperation implements Operation {
                     continue;
                 }
                 String copyType = cartBooks.size() > 1 ? "copies" : "copy";
-                System.out.println(index + ". " + bookName + " | " + cartBooks.size() + " " + copyType + " " + " | " + bookType);
+                System.out.println(index + ". " + bookName + " | " + cartBooks.size() + " " + copyType + " | " + bookType);
                 bookIndexLookup.put(index, cartBooks.get(0));
                 index++;
             }
