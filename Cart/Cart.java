@@ -6,6 +6,18 @@ import java.util.ArrayList;
 import Library.Enums.BookType;
 import Library.Model.CartBook;
 
+/**
+ * 
+ * bookLookup: 
+ * {
+ *    "bookName": {
+ *       "Physical": [CartBook],
+ *       "Ebook": [CartBook]
+ *    }
+ * }
+ * 
+ */
+
 public class Cart {
     private static Cart instance = null;
     private LinkedHashMap<String, LinkedHashMap<BookType, ArrayList<CartBook>>> booksLookup;
