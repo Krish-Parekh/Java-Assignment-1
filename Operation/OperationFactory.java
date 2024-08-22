@@ -102,8 +102,9 @@ public class OperationFactory {
             ++bookNumber;
             Book book = searchedBooks.get(i);
             String hasEBook = book.getHasEBook() ? "Yes" : "No";
+            String nCopiesType = book.getNCopies() > 1 ? " copies" : " copy";
             System.out.println(bookNumber + ". " + book.getTitle() + " | " + book.getAuthors() + " | "
-                    + book.getNCopies() + " copies" + " | " + hasEBook);
+                    + book.getNCopies() + nCopiesType + " | " + hasEBook);
         }
         if (bookNumber == 0) {
             System.out.println("No books found \n");
