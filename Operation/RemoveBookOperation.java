@@ -48,5 +48,6 @@ public class RemoveBookOperation implements Operation {
         }
 
         Cart.getInstance().removeBook(bookIndexLookup.get(bookIndex));
+        System.out.println("\""+ bookIndexLookup.get(bookIndex).getTitle() + "\"" + " has been removed from your shopping cart");
     }
 }

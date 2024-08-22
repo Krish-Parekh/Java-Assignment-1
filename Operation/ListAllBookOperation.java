@@ -21,7 +21,7 @@ public class ListAllBookOperation implements Operation {
         System.out.println("The following books are available:");
         int counter = 1;
         for (Book book : allBooks) {
-            System.out.println(counter + " " + book.toString());
+            System.out.println(counter + ". " + book.toString());
             counter++;
         }
     }
